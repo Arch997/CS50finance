@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+	Quote
+{% endblock %}
+
+{% block main %}
+	<form action="/quote" method="post">
+		<div class="form-group">
+			<input class="form-control"  type="text" name="symbol" placeholder="Symbol">
+		</div>
+		<button class="btn btn-primary" type="submmit">Get Quote</button>
+	</form>
+	<footer class="small text-centered text-muted">
+		Real-time Data by <a href="https://iexcloud.io">IEX Cloud</a>
+	</footer>
+{% endblock %}

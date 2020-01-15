@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+	Quote
+{% endblock %}
+
+{% block main %}
+<table class="table">
+	<thead>
+		<tr>
+			<th scope="col">Company</th>
+			<th scope="col">Price</th>
+			<th scope="symbol">Symbol</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>{{ stock.name }}</td>
+			<td>{{ stock.price | usd }}</td>
+			<td>{{ stock.symbol }}</td>
+		</tr>
+	</tbody>
+</table>
+	<p>
+		<footer class="medium text-centered text-muted">
+			<a href="/buy">Want to buy this stock?</a>
+		</footer>
+	</p>
+
+{% endblock %}

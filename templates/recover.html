@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block title %}
+	Password Recovery
+{% endblock %}
+
+{% block main %}
+
+	<form action="/recover" method="post">
+		<div class="form-group">
+			<input autofocus class="form-control" type="password" name="password" placeholder="Password">
+			<input autofocus class="form-control" type="password" name="password" placeholder="Repeat Password">
+		</div>
+		<button btn btn-primary type="submit">Enter</button>
+	</form>
+	
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block main %}
+	<span id="clock"></span>
+	<script type="text/javascript">
+		(function () {
+			// body...
+			var clockElement = document.getElementById("clock");
+
+			function updateClock(clock) {
+				// body...
+				clock.innerHTML = new Date().toLocaleTimeString();
+			}
+			setInterval( function() {
+				updateClock( clockElement );
+			}, 1000);
+		}());
+	</script>
+	<table class="table-striped">
+		<thead>
+			<tr>
+				<th>Symbol</th>
+				<th>Company Name</th>
+				<th>Shares</th>
+				<th>Price</th>	
+				<th>TOTAL</th>			
+			</tr>
+		</thead>
+		<tfoot>
+			<tr>
+				<td colspan="4"></td>
+				
+				<td>{{ "${:.2f}".format( init_cash | float) }}</td>
+			</tr>
+		</tfoot>
+		<tbody>
+			{% for stock in portfolio %}
+			<tr>
+				{{ stock.symbol }}
+				{{ stock.name }}
+				{{ stock.shares }}
+				{{ stock.price | usd }}
+				{{ stock['total'] | usd }}
+				
+			</tr>
+             {% endfor %}
+			<tr>
+				<td colspan="4">CASH</td>
+				<td>{{ cash | usd }}</td>
+			</tr>
+						
+		</tbody>		
+	</table>
+
+{% endblock %}
